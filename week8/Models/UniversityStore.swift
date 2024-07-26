@@ -24,6 +24,8 @@ class UniversityStore: ObservableObject {
   }
   
   private func loadJSON() {
+    print(FileManager.documentsDirectoryURL)
+    
     guard let universityJSONURL = Bundle.main.url(forResource: "university_data", withExtension: "json") else {
       print("File not in bundle")
       guard FileManager.default.fileExists(atPath: universityJSONURL.path) else {
@@ -38,7 +40,8 @@ class UniversityStore: ObservableObject {
     do {
       let data = try Data(contentsOf: universityJSONURL)
       universityData = try decoder.decode(UniversityData.self, from: data)
-      
+      print("hello")
+      print(universityData.universities.count)
       
     } catch let error {
       print("decoding error!")

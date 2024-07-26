@@ -14,21 +14,43 @@ struct UniversityData: Encodable {
     case universities
   }
   
-  enum UniversitiesKeys: CodingKey {
-    case alphaTwoCode, webPages, country, domains, name, stateProvince
+  enum UniversitiesKeys: String, CodingKey {
+    case alphaTwoCode = "alpha_two_code"
+    case webpages = "web_pages"
+    case country
+    case domains
+    case name
+    case stateProvince = "state-province"
+  }
+  
+  enum WebpageKeys: CodingKey {
+    case webpage
+  }
+  
+  enum DomainKeys: CodingKey {
+    case domain
   }
   
   func encode(to encoder: Encoder) throws {
-    var container = encoder.container(keyedBy: CodingKeys.self)
-    var universitysContainer = container.nestedUnkeyedContainer(forKey: .universities)
+    var universitiesContainer = encoder.unkeyedContainer()
     
     for university in universities {
-      var universityContainer = universitysContainer.nestedContainer(keyedBy: UniversitiesKeys.self)
+      var universityContainer = universitiesContainer.nestedContainer(keyedBy: UniversitiesKeys.self)
       
       try universityContainer.encode(university.alphaTwoCode, forKey: .alphaTwoCode)
-      try universityContainer.encode(university.webPages, forKey: .webPages)
+      
+      var webpagesContainer = universityContainer.nestedUnkeyedContainer(forKey: .webpages)
+      for webpage in university.webpages {
+        try webpagesContainer.encode(webpage)
+      }
+      
       try universityContainer.encode(university.country, forKey: .country)
-      try universityContainer.encode(university.domains, forKey: .domains)
+      
+      var domainsContainer = universityContainer.nestedUnkeyedContainer(forKey: .domains)
+      for domain in university.domains {
+        try domainsContainer.encode(domain)
+      }
+      
       try universityContainer.encode(university.name, forKey: .name)
       try universityContainer.encode(university.stateProvince, forKey: .stateProvince)
     }
@@ -37,21 +59,39 @@ struct UniversityData: Encodable {
 
 extension UniversityData: Decodable {
   init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    
-    var universitiesContainer = try container.nestedUnkeyedContainer(forKey: .universities)
+    var universitiesContainer = try decoder.unkeyedContainer()
     
     var universitiesArray: [University] = []
     
     while !universitiesContainer.isAtEnd {
       let universityContainer = try universitiesContainer.nestedContainer(keyedBy: UniversitiesKeys.self)
+      
       let alphaTwoCode = try universityContainer.decode(String.self, forKey: .alphaTwoCode)
-      let webPages = try universityContainer.decode([String].self, forKey: .webPages)
+            
+      var webpagesContainer = try universityContainer.nestedUnkeyedContainer(forKey: .webpages)
+      var webpagesArray: [String] = []
+      
+      while !webpagesContainer.isAtEnd {
+        let webpage = try webpagesContainer.decode(String.self)
+        webpagesArray.append(webpage)
+      }
+      let webpages = webpagesArray
+      
       let country = try universityContainer.decode(String.self, forKey: .country)
-      let domains = try universityContainer.decode([String].self, forKey: .domains)
+
+      var domainsContainer = try universityContainer.nestedUnkeyedContainer(forKey: .domains)
+      var domainsArray: [String] = []
+      
+      while !domainsContainer.isAtEnd {
+        let domain = try domainsContainer.decode(String.self)
+        domainsArray.append(domain)
+      }
+      let domains = domainsArray
+      
       let name = try universityContainer.decode(String.self, forKey: .name)
       let stateProvince = try universityContainer.decode(String?.self, forKey: .stateProvince)
-      let university = University(alphaTwoCode: alphaTwoCode, webPages: webPages, country: country, domains: domains, name: name, stateProvince: stateProvince)
+      
+      let university = University(alphaTwoCode: alphaTwoCode, webpages: webpages, country: country, domains: domains, name: name, stateProvince: stateProvince)
       universitiesArray.append(university)
     }
     

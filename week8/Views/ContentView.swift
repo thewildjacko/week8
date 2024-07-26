@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var universityStore = UniversityStore()
+  
     var body: some View {
+      NavigationStack {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+          List(universityStore.universityData.universities, id: \.id) { university in
+            NavigationLink(destination: Text(university.name)) {
+              Text(university.name)
+            }
+          }
         }
+        .navigationTitle("Universities")
+        .listStyle(.plain)
         .padding()
+      }
     }
 }
 
