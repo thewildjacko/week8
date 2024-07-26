@@ -2,7 +2,7 @@
 
 a) Concurrency means doing **multiple**  things at once.
 
-b) In Swift's concurrency, the term "main actor" is often used in place of **main thread**..
+b) In Swift's concurrency, the term "main actor" is often used in place of **main thread**.
 
 c) The main challenge of concurrent programming is that the **order** of operations can change.
 
