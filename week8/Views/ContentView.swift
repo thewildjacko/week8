@@ -14,7 +14,7 @@ struct ContentView: View {
       NavigationStack {
         VStack {
           List(universityStore.universityData.universities, id: \.id) { university in
-            NavigationLink(destination: Text(university.name)) {
+            NavigationLink(destination: UniversityDetailView(university: university)) {
               Text(university.name)
             }
           }
