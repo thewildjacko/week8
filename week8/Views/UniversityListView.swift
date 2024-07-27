@@ -49,7 +49,6 @@ struct UniversityListView: View {
       .onAppear(perform: {
 //        downloader.downloadUniversities(at: URL(string: "http://universities.hipolabs.com/search?country=United+States")!)
 //        universityData = downloader.universityData
-//        print(universityData!.universities.first!)
       })
       .sheet(isPresented: $showUniversities) {
         if let data = downloader.universityData {
