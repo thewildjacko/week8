@@ -10,6 +10,10 @@ import Foundation
 struct UniversityData: Encodable {
   var universities: [University]
   
+  var downloadLocation: URL? {
+    return URL(string: "http://universities.hipolabs.com/search?country=United+States")
+  }
+  
   enum CodingKeys: CodingKey {
     case universities
   }

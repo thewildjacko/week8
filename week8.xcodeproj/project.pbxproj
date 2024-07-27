@@ -14,7 +14,6 @@
 		1D877CE12C53EC6100F198BA /* university_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D877CE02C53EC6100F198BA /* university_data.json */; };
 		1D877CE52C53EED600F198BA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CE42C53EED600F198BA /* University.swift */; };
 		1D877CE82C53F00200F198BA /* UniversityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CE72C53F00200F198BA /* UniversityData.swift */; };
-		1D877CEB2C53F75200F198BA /* UniversityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CEA2C53F75200F198BA /* UniversityStore.swift */; };
 		1D877CED2C53F7DB00F198BA /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CEC2C53F7DB00F198BA /* FileManager.swift */; };
 		1D877CF22C54182100F198BA /* UniversityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CF12C54182100F198BA /* UniversityDetailView.swift */; };
 		1D877CF42C54196100F198BA /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CF32C54196100F198BA /* DetailRow.swift */; };
@@ -31,7 +30,6 @@
 		1D877CE02C53EC6100F198BA /* university_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = university_data.json; path = week8/university_data.json; sourceTree = SOURCE_ROOT; };
 		1D877CE42C53EED600F198BA /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
 		1D877CE72C53F00200F198BA /* UniversityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityData.swift; sourceTree = "<group>"; };
-		1D877CEA2C53F75200F198BA /* UniversityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityStore.swift; sourceTree = "<group>"; };
 		1D877CEC2C53F7DB00F198BA /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		1D877CF12C54182100F198BA /* UniversityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDetailView.swift; sourceTree = "<group>"; };
 		1D877CF32C54196100F198BA /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 		1D877CE22C53EEB700F198BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1D877CEA2C53F75200F198BA /* UniversityStore.swift */,
 				1D877CE72C53F00200F198BA /* UniversityData.swift */,
 				1D877CE42C53EED600F198BA /* University.swift */,
 				1D98AA492C5566C700A14AFF /* UniversityDownloader.swift */,
@@ -191,7 +188,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D877CEB2C53F75200F198BA /* UniversityStore.swift in Sources */,
 				1D2B41D82C5310F00090D360 /* ContentView.swift in Sources */,
 				1D877CF22C54182100F198BA /* UniversityDetailView.swift in Sources */,
 				1D2B41D62C5310F00090D360 /* week8App.swift in Sources */,

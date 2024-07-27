@@ -130,7 +130,6 @@ extension UniversityDownloader: URLSessionDownloadDelegate {
             if let downloadLocation = downloadLocation {
               let data = try Data(contentsOf: downloadLocation)
               universityData = try decoder.decode(UniversityData.self, from: data)
-              print(universityData!.universities.first!)
             }
           } catch let error {
             print("oh no! decoding error!")
@@ -161,6 +160,4 @@ extension UniversityDownloader: URLSessionDownloadDelegate {
       }
     }
   }
-  
-  
 }

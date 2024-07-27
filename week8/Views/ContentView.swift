@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var universityStore = UniversityStore()
-  
   var body: some View {
-    UniversityListView(universityStore: universityStore)
+    UniversityListView()
   }
 }
 
