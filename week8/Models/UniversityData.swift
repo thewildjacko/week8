@@ -28,24 +28,6 @@ struct UniversityData: Encodable {
     
     for university in universities {
       try universitiesContainer.encode(university)
-//      var universityContainer = universitiesContainer.nestedContainer(keyedBy: UniversitiesKeys.self)
-//      
-//      try universityContainer.encode(university.alphaTwoCode, forKey: .alphaTwoCode)
-//      
-//      var webpagesContainer = universityContainer.nestedUnkeyedContainer(forKey: .webpages)
-//      for webpage in university.webpages {
-//        try webpagesContainer.encode(webpage)
-//      }
-//      
-//      try universityContainer.encode(university.country, forKey: .country)
-//      
-//      var domainsContainer = universityContainer.nestedUnkeyedContainer(forKey: .domains)
-//      for domain in university.domains {
-//        try domainsContainer.encode(domain)
-//      }
-//      
-//      try universityContainer.encode(university.name, forKey: .name)
-//      try universityContainer.encode(university.stateProvince, forKey: .stateProvince)
     }
   }
 }

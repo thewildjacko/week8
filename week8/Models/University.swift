@@ -16,6 +16,10 @@ struct University {
   var domains: [String]
   var name: String
   var stateProvince: String?
+  
+  static func demo() -> University {
+    University(alphaTwoCode: "US", webpages: ["https://www.marywood.edu"], country: "United States", domains: ["marywood.edu"], name: "Marywood University")
+  }
 }
 
 extension University: Identifiable, Codable {

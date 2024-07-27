@@ -18,6 +18,8 @@
 		1D877CED2C53F7DB00F198BA /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CEC2C53F7DB00F198BA /* FileManager.swift */; };
 		1D877CF22C54182100F198BA /* UniversityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CF12C54182100F198BA /* UniversityDetailView.swift */; };
 		1D877CF42C54196100F198BA /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877CF32C54196100F198BA /* DetailRow.swift */; };
+		1D98AA4A2C5566C700A14AFF /* UniversityDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98AA492C5566C700A14AFF /* UniversityDownloader.swift */; };
+		1D98AA4C2C5572B800A14AFF /* UniversityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98AA4B2C5572B800A14AFF /* UniversityListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,9 @@
 		1D877CEC2C53F7DB00F198BA /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		1D877CF12C54182100F198BA /* UniversityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDetailView.swift; sourceTree = "<group>"; };
 		1D877CF32C54196100F198BA /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
+		1D98AA492C5566C700A14AFF /* UniversityDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDownloader.swift; sourceTree = "<group>"; };
+		1D98AA4B2C5572B800A14AFF /* UniversityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityListView.swift; sourceTree = "<group>"; };
+		1D98AA4D2C5583E500A14AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 		1D2B41D42C5310F00090D360 /* week8 */ = {
 			isa = PBXGroup;
 			children = (
+				1D98AA4D2C5583E500A14AFF /* Info.plist */,
 				1D2B41D52C5310F00090D360 /* week8App.swift */,
 				1D877CE02C53EC6100F198BA /* university_data.json */,
 				1D877CE32C53EEBC00F198BA /* Views */,
@@ -90,6 +96,7 @@
 				1D877CEA2C53F75200F198BA /* UniversityStore.swift */,
 				1D877CE72C53F00200F198BA /* UniversityData.swift */,
 				1D877CE42C53EED600F198BA /* University.swift */,
+				1D98AA492C5566C700A14AFF /* UniversityDownloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				1D2B41D72C5310F00090D360 /* ContentView.swift */,
+				1D98AA4B2C5572B800A14AFF /* UniversityListView.swift */,
 				1D877CF12C54182100F198BA /* UniversityDetailView.swift */,
 				1D877CF32C54196100F198BA /* DetailRow.swift */,
 			);
@@ -187,7 +195,9 @@
 				1D2B41D82C5310F00090D360 /* ContentView.swift in Sources */,
 				1D877CF22C54182100F198BA /* UniversityDetailView.swift in Sources */,
 				1D2B41D62C5310F00090D360 /* week8App.swift in Sources */,
+				1D98AA4C2C5572B800A14AFF /* UniversityListView.swift in Sources */,
 				1D877CED2C53F7DB00F198BA /* FileManager.swift in Sources */,
+				1D98AA4A2C5566C700A14AFF /* UniversityDownloader.swift in Sources */,
 				1D877CF42C54196100F198BA /* DetailRow.swift in Sources */,
 				1D877CE52C53EED600F198BA /* University.swift in Sources */,
 				1D877CE82C53F00200F198BA /* UniversityData.swift in Sources */,
@@ -327,6 +337,7 @@
 				DEVELOPMENT_TEAM = C359E2V4B3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = week8/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -356,6 +367,7 @@
 				DEVELOPMENT_TEAM = C359E2V4B3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = week8/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

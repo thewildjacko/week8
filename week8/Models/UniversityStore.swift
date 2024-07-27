@@ -16,6 +16,10 @@ class UniversityStore: ObservableObject {
     }
   }
   
+  var downloadLocation: URL? {
+    return URL(string: "http://universities.hipolabs.com/search?country=United+States")
+  }
+  
   let universityJSONURL = URL(fileURLWithPath: "university_data", relativeTo: FileManager.documentsDirectoryURL)
     .appendingPathExtension("json")
   

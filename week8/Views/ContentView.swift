@@ -10,22 +10,11 @@ import SwiftUI
 struct ContentView: View {
   @State var universityStore = UniversityStore()
   
-    var body: some View {
-      NavigationStack {
-        VStack {
-          List(universityStore.universityData.universities, id: \.id) { university in
-            NavigationLink(destination: UniversityDetailView(university: university)) {
-              Text(university.name)
-            }
-          }
-        }
-        .navigationTitle("Universities")
-        .listStyle(.plain)
-        .padding()
-      }
-    }
+  var body: some View {
+    UniversityListView(universityStore: universityStore)
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
