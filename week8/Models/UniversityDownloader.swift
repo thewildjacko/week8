@@ -24,6 +24,7 @@ class UniversityDownloader: NSObject, ObservableObject {
   
   var state: State = .waiting
   var resumeData: Data?
+  var universityData: UniversityData?
   
   private lazy var session: URLSession =  {
     let configuration = URLSessionConfiguration.default
@@ -122,6 +123,19 @@ extension UniversityDownloader: URLSessionDownloadDelegate {
       Task {
         await MainActor.run {
           downloadLocation = destinationURL
+          
+          let decoder = JSONDecoder()
+          
+          do {
+            if let downloadLocation = downloadLocation {
+              let data = try Data(contentsOf: downloadLocation)
+              universityData = try decoder.decode(UniversityData.self, from: data)
+              print(universityData!.universities.first!)
+            }
+          } catch let error {
+            print("oh no! decoding error!")
+            print(error)
+          }
           
           state = .finished
         }

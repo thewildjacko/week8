@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UniversityListView: View {
   var universityStore: UniversityStore
+  @State var universityData: UniversityData?
   
   @ObservedObject private var downloader =
   UniversityDownloader()
@@ -23,12 +24,12 @@ struct UniversityListView: View {
           switch downloader.state {
           case .downloading:
             return Text("Pause")
-
+            
           case .failed:
             return Text("Retry")
             
           case .finished:
-            return Text("Listen")
+            return Text("View")
             
           case .paused:
             return Text("Resume")
@@ -40,21 +41,33 @@ struct UniversityListView: View {
         
         if downloader.state == .paused || downloader.state == .downloading {
           ProgressView(value: downloader.downloadProgress)
-      }
-        
-        List(universityStore.universityData.universities, id: \.id) { university in
-          NavigationLink(destination: UniversityDetailView(university: university)) {
-            Text(university.name)
-          }
         }
       }
       .navigationTitle("Universities")
       .listStyle(.plain)
       .padding()
+      .onAppear(perform: {
+//        downloader.downloadUniversities(at: URL(string: "http://universities.hipolabs.com/search?country=United+States")!)
+//        universityData = downloader.universityData
+//        print(universityData!.universities.first!)
+      })
       .sheet(isPresented: $showUniversities) {
-        
+        if let data = downloader.universityData {
+          List(data.universities, id: \.id) { university in
+            NavigationLink(destination: UniversityDetailView(university: university)) {
+              Text(university.name)
+            }
+          }
+        } else {
+          Text("Could not load data")
+        }
       }
       
+      List(universityStore.universityData.universities, id: \.id) { university in
+        NavigationLink(destination: UniversityDetailView(university: university)) {
+          Text(university.name)
+        }
+      }
     }
   }
   
